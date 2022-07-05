@@ -40,7 +40,11 @@ class PostController extends Controller
             'content' => 'required|string|between:10,5000',
         ]);
 
-        return response()->json($post->create($data)->toArray());
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->save();
+
+        return response()->json(['success'=>'success']);
     }
 
     /**

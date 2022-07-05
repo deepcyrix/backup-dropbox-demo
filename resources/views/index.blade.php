@@ -96,7 +96,7 @@
             posts: []
         },
         created() {
-            axios.get('http://api.backup-demo.test/posts').then(res => this.posts = res.data.data)
+            axios.get('{{route('posts.index')}}').then(res => this.posts = res.data.data)
         }
     })
     </script>
